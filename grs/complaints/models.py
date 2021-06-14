@@ -7,6 +7,7 @@ class complaint(models.Model):
     This is the basic database for storing complaints.
     """
     title = models.CharField(max_length=200)
+    name = models.CharField(max_length=255, blank=True)
     user_type = (
         ('M', 'Mentor'),
         ('T', 'Trainee'),
@@ -16,6 +17,7 @@ class complaint(models.Model):
         choices=user_type,
         default='T',
     )
+    date = models.DateTimeField(auto_now=True)
     complaint_type = (
         ('M', 'Management'),
         ('E', 'Education'),
@@ -23,10 +25,19 @@ class complaint(models.Model):
         ('S', 'Salary'),
         ('G', 'General'),
     )
-    complaint = models.CharField(
+    complaint_for = models.CharField(
         max_length=1,
         choices=complaint_type,
         default='G',
+    )
+    complaint_type_to = (
+        ('A', 'Admin'),
+        ('M', 'Mentor'),
+    )
+    complaint_to = models.CharField(
+        max_length=1,
+        choices=complaint_type_to,
+        default='M',
     )
     cohort_choice = (
         ('P', 'Python'),
