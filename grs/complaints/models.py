@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.enums import Choices
 
 
 # Create your models here.
@@ -44,4 +43,12 @@ class complaint(models.Model):
         default='I',
     )
     description = models.TextField(blank=False, max_length=500)
-    status = models.IntegerField(default=0)
+    status_type = (
+        ('P', 'Pending'),
+        ('R', 'Resolved'),
+    )
+    status = models.CharField(
+        max_length=1,
+        choices=status_type,
+        default='P',
+    )
