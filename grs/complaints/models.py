@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.enums import Choices
 
 
 # Create your models here.
@@ -16,7 +17,7 @@ class complaints(models.Model):
     )
     complaint = models.CharField(
         max_length=1,
-        choice=complaint_type,
+        choices=complaint_type,
         default='G',
     )
     cohort_choice = (
