@@ -3,7 +3,7 @@ from django.db.models.enums import Choices
 
 
 # Create your models here.
-class complaints(models.Model):
+class complaint(models.Model):
     """
     This is the basic database for storing complaints.
     """
