@@ -7,6 +7,15 @@ class complaint(models.Model):
     This is the basic database for storing complaints.
     """
     title = models.CharField(max_length=200)
+    user_type = (
+        ('M', 'Mentor'),
+        ('T', 'Trainee'),
+    )
+    user = models.CharField(
+        max_length=1,
+        choices=user_type,
+        default='T',
+    )
     complaint_type = (
         ('M', 'Management'),
         ('E', 'Education'),
