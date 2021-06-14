@@ -63,12 +63,22 @@ class complaint(models.Model):
         default='I',
     )
     description = models.TextField(blank=False, max_length=500)
-    status_type = (
+    complaint_category = (
+        ('A', 'Anonymous'),
+        ('I', 'Identifiable'),
+    )
+    category = models.CharField(
+        max_length=1,
+        choices=complaint_category,
+        default='I',
+    )
+    complaint_status = (
         ('P', 'Pending'),
+        ('N', 'Need Clarification'),
         ('R', 'Resolved'),
     )
     status = models.CharField(
         max_length=1,
-        choices=status_type,
+        choices=complaint_status,
         default='P',
     )
