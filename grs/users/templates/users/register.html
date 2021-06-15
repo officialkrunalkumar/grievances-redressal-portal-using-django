@@ -2,17 +2,17 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
+<div class="container mt-4">
     <div class="container">
         <div class="content-section">
             <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Join MountBlue Grievance Redressal Portal</legend>
+                    <legend class="border-bottom mb-4 mt-4 text-center">Join MountBlue Grievance Redressal Portal</legend>
                     {{ form|crispy }}
                 </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                <div class="form-group text-center">
+                    <button class="btn btn-outline-info btn-lg" type="submit">Sign Up</button>
                 </div>
             </form>
             <div class="border-top pt-3">
