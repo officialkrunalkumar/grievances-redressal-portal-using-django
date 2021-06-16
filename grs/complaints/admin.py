@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import complaint
+from .models import Complaint
 
-admin.site.register(complaint)
+admin.site.register(Complaint)

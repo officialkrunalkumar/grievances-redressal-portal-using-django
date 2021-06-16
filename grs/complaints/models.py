@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
-class complaint(models.Model):
+class Complaint(models.Model):
     """
     This is the basic database for storing complaints.
     """
@@ -12,7 +13,7 @@ class complaint(models.Model):
         ('M', 'Mentor'),
         ('T', 'Trainee'),
     )
-    user = models.CharField(
+    user_role = models.CharField(
         max_length=1,
         choices=user_type,
         default='T',
@@ -82,3 +83,5 @@ class complaint(models.Model):
         choices=complaint_status,
         default='P',
     )
+    resoultion = models.TextField(blank=True, max_length=500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

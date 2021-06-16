@@ -1,4 +1,39 @@
 {% extends 'users/base.html' %}
 {% block content %}
-<h1>Home</h1>
+<br>
+<div class="container">
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Description</th>
+        <th scope="col">status</th>
+        <th scope="col">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for complaint in complaints %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{complaint.description}}</td>
+        <td>{% if complaint.status == 'P' %}
+          Pending
+          {% elif complaint.status == 'N' %}
+          Needs More Clarification
+          {% else %}
+          Resolved!
+          {% endif %}
+        </td>
+        {% if complaint.status == 'R' %}
+        <td>
+          {{complaint.resolution}}
+        </td>
+        {% else %}
+        <td> Under process </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
