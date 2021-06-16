@@ -4,19 +4,20 @@
 <div class="container">
 <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th scope="col">Sr. No.</th>
         <th scope="col">Description</th>
         <th scope="col">status</th>
         <th scope="col">Remarks</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       {% for complaint in complaints %}
       <tr>
-        <th scope="row">{{forloop.counter}}</th>
+        <th scope="row" class="text-center">{{forloop.counter}}</th>
         <td>{{complaint.description}}</td>
-        <td>{% if complaint.status == 'P' %}
+        <td class="text-center">{% if complaint.status == 'P' %}
           Pending
           {% elif complaint.status == 'N' %}
           Needs More Clarification
@@ -24,17 +25,32 @@
           Resolved!
           {% endif %}
         </td>
-        {% if complaint.status == 'R' %}
+        {% if complaint.status == 'R' or complaint.status == 'N' %}
         <td>
           {{complaint.resoultion}}
         </td>
         {% else %}
         <td> Under process </td>
         {% endif %}
+        {% if complaint.status == 'P'%}
+        <td class="text-center">
+          <a href="{% url 'complaints:delete_complaint' complaint.id %}" type="btn" class="btn btn-danger">Delete</a>
+        </td> 
+        {% elif complaint.status == 'N'%}
+        <td class="text-center">
+          <a href="{% url 'complaints:update_complaint' complaint.id %}" type="btn" class="btn btn-primary">Update</a>
+        </td> 
+        {% else %}
+        <td class="text-center">
+          <a href="" type="btn" class="btn btn-success">Feedback</a>
+        </td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
   </table>
-  <a href="{% url 'complaints:add_complaint' %}" class="btn btn-primary" type="button"> Add Complaint</a>
+  <div class="container text-center">
+  <a href="{% url 'complaints:add_complaint' %}" class="btn btn-primary btn-lg" type="button"> Add Complaint</a>
+  </div>
 </div>
 {% endblock %}
