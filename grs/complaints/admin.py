@@ -5,6 +5,6 @@ from .models import Complaint
 
 
 class ComplaitAdmin(admin.ModelAdmin):
-    list_display = ('title','complaint_to','complaint_for','user_role')
+    list_display = ('id', 'title', 'complaint_to', 'complaint_for', 'user_role')
 
 admin.site.register(Complaint, ComplaitAdmin) 

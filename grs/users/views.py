@@ -17,7 +17,7 @@ def register(request):
 
 @login_required(login_url='login')
 def profile(request):
-    complaints = Complaint.objects.all().filter(user=request.user)
+    complaints = Complaint.objects.all().filter(user=request.user).order_by('-id')
     print(complaints)
     context = {
         'complaints': complaints
