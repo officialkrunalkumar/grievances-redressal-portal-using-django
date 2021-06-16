@@ -10,7 +10,8 @@ def register(request):
     form = UserRegisterForm(request.POST or None)
     if form.is_valid():
         form.save()
-        messages.success(request, f"Congratulation! You are registed with MountBlue's GRS.")
+        messages.success(request, "Congratulation! \
+                         You are registed with MountBlue's GRS.")
     return render(request, 'users/register.html', {'form': form})
 
 
@@ -21,4 +22,4 @@ def profile(request):
     context = {
         'complaints': complaints
     }
-    return render(request, 'users/profile.html', context) 
+    return render(request, 'users/profile.html', context)
