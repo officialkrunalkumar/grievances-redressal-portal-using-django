@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied 
 # Create your views here.
-from .models import Complaint
-from .forms import AddComplaintForm
+from .models import Complaint, Feedback
+from .forms import AddComplaintForm, AddFeedbackForm
 
 
 @login_required(login_url='login')
@@ -66,3 +66,38 @@ def update_complaint(request, id):
         return render(request, 'complaints/add_complaint.html', {'form': form})
     else:
         raise PermissionDenied("You Don't Have Persmission to do that") 
+
+
+@login_required(login_url='login')
+def my_complaints(request):
+    complaints = Complaint.objects.all().filter(user=request.user).order_by('-id')
+    if len(complaints) == 0:
+        messages.info(
+            request, 'You does not have any complaint yet! Please Provide if you are facing any one')
+        return redirect('complaints:add_complaint')
+    context = {
+        'complaints': complaints
+    }
+    return render(request, 'complaints/mycomplaints.html', context)
+
+def add_feedback(request, id):
+    complaint = get_object_or_404(Complaint ,id=id)
+    form = AddFeedbackForm(request.POST or None)
+    feedbacks = Feedback.objects.all().filter()
+    for feedback in feedbacks:
+        if id == feedback.complaint.id:
+            messages.info(
+            request, 'You Already provided the Feedback For this Complaint!')
+            return redirect('complaints:my_complaints')
+    if form.is_valid():
+        feedback = Feedback(
+            complaint = complaint,
+            rating=request.POST['rating'],
+            description=request.POST['description']
+        )
+        feedback.save()
+        messages.info(
+        request, 'Thanks for the Feedback!')
+        return redirect('home:home')       
+    else:
+        return render(request,'complaints/add_feedback.html',{'form':form})
