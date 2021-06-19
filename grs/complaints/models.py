@@ -85,3 +85,18 @@ class Complaint(models.Model):
     )
     resoultion = models.TextField(blank=True, max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Feedback(models.Model):
+    rating_list=(
+        (1,'1'),
+        (2,'2'),
+        (3,'3'),
+        (4,'4'),
+        (5,'5')
+    )
+    rating = models.IntegerField(
+        choices=rating_list
+    )
+    description = models.TextField(blank=False, max_length=500)
+    complaint = models.OneToOneField(Complaint, on_delete=models.CASCADE)
