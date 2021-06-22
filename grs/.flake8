@@ -1,0 +1,2 @@
+[flake8]
+exclude = __pycache__, migrations, settings.py, apps.py, admin.py, tests.py, ./home/models.py

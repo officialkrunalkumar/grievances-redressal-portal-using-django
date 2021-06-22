@@ -33,7 +33,9 @@ def profile(request):
     else:
         p_form = UpdateProfileForm(instance=request.user.profile)
         u_form = UpdateUserForm(instance=request.user)
-    complaints = Complaint.objects.all().filter(user=request.user).order_by('-id')
+    complaints = Complaint.objects.all().filter(
+                                                user=request.user
+                                               ).order_by('-id')
     print(complaints)
     context = {
         'p_form': p_form,
