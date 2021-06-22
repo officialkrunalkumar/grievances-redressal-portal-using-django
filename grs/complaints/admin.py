@@ -5,7 +5,8 @@ from .models import Complaint, Feedback
 
 
 class ComplaitAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'complaint_to', 'complaint_for', 'user_role')
+    list_display = ('id', 'title', 'complaint_to',
+                    'complaint_for', 'user_role')
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -13,4 +14,4 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Complaint, ComplaitAdmin)
-admin.site.register(Feedback, FeedbackAdmin)  
+admin.site.register(Feedback, FeedbackAdmin)

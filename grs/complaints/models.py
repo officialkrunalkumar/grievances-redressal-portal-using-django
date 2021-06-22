@@ -88,12 +88,12 @@ class Complaint(models.Model):
 
 
 class Feedback(models.Model):
-    rating_list=(
-        (1,'1'),
-        (2,'2'),
-        (3,'3'),
-        (4,'4'),
-        (5,'5')
+    rating_list = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5')
     )
     rating = models.IntegerField(
         choices=rating_list
