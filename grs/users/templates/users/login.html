@@ -13,6 +13,8 @@
                 </fieldset>
                 <div class="form-group text-center">
                     <button class="btn btn-outline-info btn-lg" type="submit">Sign In</button>
+                    <a href="{% url 'social:begin' 'github' %}" class="btn btn-outline-info btn-lg" type="button">Login with GitHub</a>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline-info btn-lg" type="button">Login with Google</a>
                 </div>
             </form>
             <div class="border-top pt-3">
