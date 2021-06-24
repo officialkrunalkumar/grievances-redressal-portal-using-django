@@ -35,7 +35,7 @@
       {% if user.profile.profile_img %}
       <img class="profile-image" src=" {{ user.profile.profile_img.url }}">
       {% else %}
-      <img class="profile-image" src="{% static 'template_image/default.jpg' %}">
+      <img class="profile-image" src="{% static 'profile_image/default.jpg' %}">
       {% endif %}
       <div class="container">
         <h2 class="mt-3">{{ user.username }}</h2>
