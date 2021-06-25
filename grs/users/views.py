@@ -36,7 +36,6 @@ def profile(request):
     complaints = Complaint.objects.all().filter(
                                                 user=request.user
                                                ).order_by('-id')
-    print(complaints)
     context = {
         'p_form': p_form,
         'u_form': u_form,
