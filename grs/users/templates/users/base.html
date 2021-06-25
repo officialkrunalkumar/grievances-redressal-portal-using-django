@@ -15,7 +15,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-center">
-        <a class="navbar-brand" href="{% url 'home:home' %}"><img class="nav-logo" src="{% static 'template_image/mb.jpg' %}" alt="MountBlue Logo"></a>
+        <a class="navbar-brand" href="https://www.mountblue.io"><img class="nav-logo" src="{% static 'template_image/mb.jpg' %}" alt="MountBlue Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,6 +23,12 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home:home' %}">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="https://prep.mountblue.io/" target="blank">MountBlue Prep</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="https://learn.mountblue.io/" target="blank">MountBlue LMS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'complaints:add_complaint' %}">Add Complaint</a>
@@ -45,6 +51,15 @@
               <a class="nav-link" href="{% url 'users:register' %}">Signup</a>
             </li>
            {% endif %}
+           <li class="nav-item">
+            <a class="nav-link" href="https://careers.mountblue.io/" target="blank">Careers</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="https://docs.google.com/document/d/1ZfKutj65BgQSYyEhBxoCRJ6C8Gd-B477NCGhlIjly2U/edit" target="blank">FAQs</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
           </ul>
         </div>
       </nav>
@@ -59,6 +74,17 @@
     </div>
     {% endif %} 
     {% block content %}{% endblock %}
+    <hr>
+    <footer id="contact" class="bg-dark">
+      <br>
+      <u><h1 style="color: white">Contact</h1></u>
+      <p><a href="mailto:krunalkumar@mountblue.io" target="_blank">Email Me :- krunalkumar@mountblue.io</a></p>
+      <p><a href="https://wa.me/918200713617?text=Hello" target="_blank">WhatsApp Me :- +91 82007 13617</a></p>
+      <br>
+      <i><u><p style="text-align: right; font-size: small;"><a href="#navbarNav">Back to Top</a></p></u></i>
+      <br>
+      <u><small><p style="color: white">Copyright &copy; 2021, Krunalkumar Shah</p></small></u>
+  </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
