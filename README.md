@@ -96,7 +96,8 @@ Grievance Redressal Portal using Django
     127.0.0.1:8000/admin
     ```
     pass the credentials you created superuser with.
-
+14. To enable password reset functionality, add email address and password in settings.
+    Make sure if you are providing gmail, less secure apps in google must be turned on.
 > ### After viewing all
 
 <br>
