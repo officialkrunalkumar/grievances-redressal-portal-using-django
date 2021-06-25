@@ -26,6 +26,7 @@ def add_complaint(request):
             )
             complaint.save()
             messages.success(request, 'Complaint Registered')
+            return redirect('complaints:my_complaints')
     return render(request, 'complaints/add_complaint.html', {'form': form})
 
 

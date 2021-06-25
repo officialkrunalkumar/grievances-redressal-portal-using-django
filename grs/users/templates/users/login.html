@@ -13,11 +13,15 @@
                 </fieldset>
                 <div class="form-group text-center">
                     <button class="btn btn-outline-info btn-lg" type="submit">Sign In</button>
+                    <a class="btn btn-outline-info btn-lg" href="{% url 'password_reset' %}">Forgot Password?</a>
+                </div>
+                <div class="form-group text-center">
+                    <a class="btn btn-outline-info btn-lg" href="/admin" type="button">Admin Login</a>
                     <a href="{% url 'social:begin' 'github' %}" class="btn btn-outline-info btn-lg" type="button">Login with GitHub</a>
                     <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-outline-info btn-lg" type="button">Login with Google</a>
                 </div>
             </form>
-            <div class="border-top pt-3">
+            <div class="border-top pt-3 text-center">
                 <small class="text-muted">
                     Don't have an account? <a class="ml-2" href="{% url 'users:register' %}">Sign Up</a>
                 </small>
