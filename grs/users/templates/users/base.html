@@ -15,12 +15,12 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-center">
-        <a class="navbar-brand" href="https://www.mountblue.io"><img class="nav-logo" src="{% static 'template_image/mb.jpg' %}" alt="MountBlue Logo"></a>
+        <a class="navbar-brand" href="https://www.mountblue.io" target="blank"><img class="nav-logo" src="{% static 'template_image/mb.jpg' %}" alt="MountBlue Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home:home' %}">Home</a>
             </li>
@@ -30,10 +30,10 @@
             <li class="nav-item active">
               <a class="nav-link" href="https://learn.mountblue.io/" target="blank">MountBlue LMS</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'complaints:add_complaint' %}">Add Complaint</a>
             </li> 
-            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'complaints:my_complaints' %}">My Complaints</a>
             </li>  
@@ -77,14 +77,24 @@
     <hr>
     <footer id="contact" class="bg-dark">
       <br>
-      <u><h1 style="color: white">Contact</h1></u>
-      <p><a href="mailto:krunalkumar@mountblue.io" target="_blank">Email Me :- krunalkumar@mountblue.io</a></p>
-      <p><a href="https://wa.me/918200713617?text=Hello" target="_blank">WhatsApp Me :- +91 82007 13617</a></p>
+      <div class="container-fluid">
+      <u><h1>Contact</h1></u>
+      <div>
+      <a class="footer-link" href="mailto:krunalkumar@mountblue.io" target="_blank">Email Me :- krunalkumar@mountblue.io</a>
+      </div>
+      <div>
+      <a class="footer-link" href="https://wa.me/918200713617?text=Hello" target="_blank">WhatsApp Me :- +91 82007 13617</a>
+      </div>
       <br>
-      <i><u><p style="text-align: right; font-size: small;"><a href="#navbarNav">Back to Top</a></p></u></i>
+      <i><u><p style="text-align: right; font-size: small;"><a href="#home">Back to Top</a></p></u></i>
       <br>
-      <u><small><p style="color: white">Copyright &copy; 2021, Krunalkumar Shah</p></small></u>
-  </footer>
+      <u>
+          <span class="footer-link">
+          <small>Copyright &copy; 2021, Krunalkumar Shah</small>
+          </span>
+      </u>
+      </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
